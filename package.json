@@ -1,0 +1,42 @@
+{
+  "name": "tblog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./server/test/*.test.js --timeout 15000",
+    "start": "nodemon ./server/bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peanutnbt/TBlog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/peanutnbt/TBlog/issues"
+  },
+  "homepage": "https://github.com/peanutnbt/TBlog#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "express-session": "^1.17.0",
+    "fs": "0.0.1-security",
+    "mocha": "^7.1.2",
+    "mongoose": "^5.9.13",
+    "morgan": "^1.9.1",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7",
+    "pg": "^7.18.2",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.5",
+    "serve-favicon": "^2.5.0"
+  }
+}

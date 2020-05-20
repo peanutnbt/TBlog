@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Idea Exchange</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="./css/animate.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap/bootstrap.min.css">
+</head>
+<body>
+    <div id="colorlib-page" style="background-image: url(./images/bg.jpg);background-size: cover;">
+        <%-bodyContent%>
+    </div><!-- END COLORLIB-PAGE -->
+
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+            <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+            <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#F96D00" /></svg></div>
+
+
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/jquery.waypoints.min.js"></script>
+    <script src="./js/jquery.stellar.min.js"></script>
+    <script src="./js/owl.carousel.min.js"></script>
+    <script src="./js/aos.js"></script>
+    <script src="./js/jquery.animateNumber.min.js"></script>
+    <script src="./js/scrollax.min.js"></script>
+    <script src="./js/main.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#submit_button").click(function () {
+                $("#submit_button").attr("disabled", true);
+                $('#formNewIdea').submit();
+            });
+
+            $("#random_idea").click(function(e){
+                e.preventDefault();
+                $.ajax({
+                    url: 'https://tanikemen.xyz/api/v1/idea',
+                    type: 'get',
+                    success: function(data){ 
+                        var ideas = data.ideas
+                        var rand = Math.floor(Math.random() * ideas?.length)
+                        // console.log(ideas[rand])
+                        // $(".oneIdea").slideToggle("slow", function(){ $(this).remove(); });
+                        $(".oneIdea").show("slide", { direction: "left" },function(){ $(this).remove(); } , 300);
+                        $('#ideas').append(
+                        '<div class="oneIdea col-md-4 rotate_border blog-entry ftco-animate d-md-flex fadeInUp ftco-animated">'
+                            +'<div class="text text-2 pl-md-4">'
+                                + ideas[rand].content
+                            +'</div>'
+                        +'</div>'
+                        ).show('slow');
+
+                    },
+                    error: function(err){
+                        console.log(err)
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

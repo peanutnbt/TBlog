@@ -1,0 +1,29 @@
+<%- contentFor('bodyContent') %>
+<div class="title_web">IDEA EXCHANGE</div>
+<div id="colorlib-main">
+    <div class="flex random_idea">
+        <a href="" id="random_idea">Random idea</a>
+    </div>
+    <section class="ftco-section ftco-no-pt ftco-no-pb">
+        <div class="container">
+            <div class="row flex" id="ideas">
+                <% ideas.forEach( idea => { %>
+                    <div class="oneIdea col-md-4 rotate_border blog-entry ftco-animate d-md-flex">
+                        <div class="text text-2 pl-md-4">
+                            <%= idea.content %>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </section>
+    
+    <div class="letter rotate_border">
+        <form id="formNewIdea" action="/" class="form" method="post">
+            <textarea name="content" class="text_area" id="letter-textarea" placeholder="Website for Team Parties" required maxlength="100"></textarea>
+            <div class="flex">
+                <button id="submit_button" type="submit" >New idea</button>
+            </div>
+        </form>
+    </div>
+</div><!-- END COLORLIB-MAIN -->
